@@ -7,10 +7,8 @@ setup(name='Dynamics',
       author_email='jsandov4@ur.rochester.net',
       url='https://www.python.org/sigs/distutils-sig/',
       packages=['dynamic'],
-      { 
-	'console_script' : ['dynamic = dynamic.lans:start']
-	}
-
+      entry_points = {
+	'console_scripts' : ['dynamic = dynamic.lans:start'],}
      )
 
 
