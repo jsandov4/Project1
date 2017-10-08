@@ -101,7 +101,7 @@ def inputconsole(): # pragma: no cover
         
         return parse
 
-if __name__=='__main__':
+if __name__=='__main__': # pragma: no cover
 
         import os
         import matplotlib as mpl
