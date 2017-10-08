@@ -85,8 +85,8 @@ def fullDynamics(xarray,farray,mass,deltat,q00,p00,ttime,lamda,temp,types):
         return q1,p1,vt,xt,ind
 
 
-def inputconsole():
-        import argparse
+def inputconsole(): # pragma: no cover
+        import argparse 
         parse = argparse.ArgumentParser(description='Calculate dynamics')
         parse.add_argument('-c','--types',type=float,metavar ='',required=True,help='(0) for Classical dynamics'+\
                            'otherwise for langevine dynamics')
