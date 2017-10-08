@@ -8,7 +8,7 @@ setup(name='Dynamics',
       url='https://www.python.org/sigs/distutils-sig/',
       packages=['dynamic'],
       entry_points = {
-	'console_scripts' : ['dynamic = dynamic.lans:start'],}
+	'console_scripts' : ['dynamic = dynamic.__init__:main'],}
      )
 
 
