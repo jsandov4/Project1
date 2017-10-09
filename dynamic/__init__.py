@@ -132,7 +132,7 @@ def main(): # pragma: no cover
                 xwrite.write(str(ind[i])+"\t"+str(args.dt*ind[i])+"\t"+str(xt[i])+"\t"+str(vt[i])+"\n")
 
 # Adding visualization
-        mpl.rcParams['legend.fontsize'] = 10
+ 
         fig = plt.figure()
         ax = fig.gca(projection='3d')
 
