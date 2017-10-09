@@ -85,7 +85,7 @@ def test_fullDynamic():
 	q1 = -50.0
 	p1 = 0.0
 
-	qf,pf,vt,xt,inde = dynamic.fullDynamics(xpos,fforce,mass,tstep,q0,p0,ttime,0,0,0)
+	qf,pf,vt,xt,inde,tt = dynamic.fullDynamics(xpos,fforce,mass,tstep,q0,p0,ttime,0,0,0)
 
 	print(qf,pf)
 	assert numpy.isclose(q1,qf) and numpy.isclose(p1,pf) , "Bad FullDynamics"
