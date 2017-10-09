@@ -32,7 +32,7 @@ def test_interpol():
 	xtest = 30
 	xinter = dynamic.interpol(xvals,forcev,xtest)
 	
-	assert numpy.isclose(xinter,300.0), "very bad interpol"
+	assert numpy.isclose(xinter,300.0), " Bad interpolation"
 	
 	 
 def test_normalverlet():
@@ -59,9 +59,9 @@ def test_normalverlet():
 	# Next position
 	q1 = 0.5
 	p1 = 1.0
-                 #               (xarray,farray,mass,deltat,q0,p0,lamda,temp,types):
+
 	qf,pf = dynamic.normalverlet(xpos,fforce,mass,deltat,q0,p0,0,0,0)
-	#print(qf,pf)
+
 	assert numpy.isclose(q1,qf) and numpy.isclose(p1,pf) , "Bad verlet"
 
 def test_fullDynamic():
@@ -92,9 +92,6 @@ def test_fullDynamic():
 
 
 
-        #def test_inputconsole
-        #    import os
-        #    os.system("")
 
 
 
