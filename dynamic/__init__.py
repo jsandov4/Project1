@@ -44,21 +44,23 @@ def interpol(xarray, farray, xpos):
 			
 def normalverlet(xarray,farray,mass,deltat,q0,p0,lamda,temp,types):
         import random
+        #Verlet
         force0 = interpol(xarray,farray,q0)
         qt = q0 + (p0/mass)*deltat + (force0/mass)*(deltat**2)/2
         force1 = interpol(xarray,farray,qt)
         sigma = (2.0*lamda*temp)**(0.5)
-        # Introducting noise
-        # generate random number from normal distribution
-        # using lamda obtain v*lamda
+
 
         if types == 0:
                 ran = 0
                 damp = 0
         else:
+                # generate random number from normal distribution
                 ran  = random.gauss(0,sigma)
+                # Damping
                 damp =-lamda*(p0/mass)
 
+        #Normal momentum + damping and stochastic force
         pt = p0 + (force0+force1)*deltat/2 + damp*deltat + ran*deltat
         return qt,pt
 
@@ -79,10 +81,11 @@ def fullDynamics(xarray,farray,mass,deltat,q00,p00,ttime,lamda,temp,types):
                 vt.append(p1/mass)
                 xt.append(q1)
                 ind.append(i)
+                tt.append(i*deltat)
 
                 q0 = q1
                 p0 = p1
-        return q1,p1,vt,xt,ind
+        return q1,p1,vt,xt,ind,tt
 
 
 def inputconsole(): # pragma: no cover
@@ -120,7 +123,7 @@ def main(): # pragma: no cover
         print(args.types,args.q0,args.v0,args.mass,args.ttime,args.dt,args.temp)
 
 # Performing dynamics        
-        qf,pf,vt,xt,ind = fullDynamics(xpos,fforce,args.mass,args.dt,args.q0,p0,args.ttime,args.lamda,args.temp,typess)
+        qf,pf,vt,xt,ind,tt = fullDynamics(xpos,fforce,args.mass,args.dt,args.q0,p0,args.ttime,args.lamda,args.temp,typess)
 
 # Making output file
         steps = int(args.ttime/args.dt)
@@ -137,7 +140,7 @@ def main(): # pragma: no cover
         ax.set_ylabel('Velocity')
         ax.set_zlabel('Time')
         
-        ax.plot( xt, vt, ind,'r--', label='Phase space trajectory')
+        ax.plot( xt, vt, tt,'r--', label='Phase space trajectory')
         ax.legend()
         plt.show()
 
