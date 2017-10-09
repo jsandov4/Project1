@@ -11,15 +11,15 @@ This package allows to perform either, Classical or Langevine dynamics according
 
 The input that should be put in the console has the following attributes:
 
-  -c , --type 0 (zero) for Classical dynamics otherwise for langevine dynamics
-  -q , --q0       Initial position
-  -v , --v0       Initial momentum
-  -m , --mass     Mass of the particle
-  -ti , --ttime   Total time
-  -d , --dt       Time step size
-  -te , --temp    Temperature of the system
-  -l , --lamda    Damping constant
-  -i , --input    filename
+  -c , --type 0 (zero) for Classical dynamics otherwise for langevine dynamics <br />
+  -q , --q0       Initial position <br />
+  -v , --v0       Initial momentum <br />
+  -m , --mass     Mass of the particle <br />
+  -ti , --ttime   Total time <br />
+  -d , --dt       Time step size <br />
+  -te , --temp    Temperature of the system <br />
+  -l , --lamda    Damping constant <br />
+  -i , --input    filename<br />
 
 ### Auxiliary data
 
